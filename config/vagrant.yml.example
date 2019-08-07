@@ -1,0 +1,4 @@
+theme_dir: "/local/path/to/theme/millroadwinterfair"
+core_dir: "/local/path/to/core"
+mobile_theme_dir: "/local/path/to/theme/millroadwinterfair_mobile"
+ip: 10.0.0.40

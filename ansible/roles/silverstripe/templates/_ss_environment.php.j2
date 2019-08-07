@@ -1,0 +1,13 @@
+<?php
+/* What kind of environment is this: development, test, or live (ie, production)? */
+define('SS_ENVIRONMENT_TYPE', '{{ ss_env_type }}');
+
+/* Database connection */
+define('SS_DATABASE_SERVER', 'localhost');
+define('SS_DATABASE_NAME', '{{ mrwf_mysql_database }}');
+define('SS_DATABASE_USERNAME', '{{ mrwf_mysql_user }}');
+define('SS_DATABASE_PASSWORD', '{{ mysql_passwd }}');
+
+/* Configure a default username and password to access the CMS on all sites in this environment. */
+define('SS_DEFAULT_ADMIN_USERNAME', '{{ ss_account_name }}');
+define('SS_DEFAULT_ADMIN_PASSWORD', '{{ ss_account_pass }}');

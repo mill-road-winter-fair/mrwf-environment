@@ -1,0 +1,8 @@
+- src: geerlingguy.php
+  version: 3.7.0
+- src: oefenweb.composer
+  version: v2.0.29
+- src: geerlingguy.apache
+  version: 3.1.0
+- src: rheinwerk.mysql
+  version: v1.0.1

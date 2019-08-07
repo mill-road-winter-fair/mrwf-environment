@@ -1,0 +1,67 @@
+---
+- name: Check if Silverstripe is already set up.
+  stat: "path={{ mrwf_root }}/index.php"
+  register: ss_site
+
+- name: Create new Silverstripe project
+  composer: 
+    command: create-project
+    working_dir: "{{ mrwf_root }}"
+    arguments: silverstripe/installer ./ {{ ss_version }}
+  when: ss_create_project and not ss_site.stat.exists
+  become: no
+
+- name: Configure composer with the extra repos we need
+  composer:
+    command: config
+    working_dir: "{{ mrwf_root }}"
+    arguments: repositories.unclecheese vcs https://github.com/unclecheese/DataObjectManager/
+
+- name: Require Silverstripe plugins
+  composer:
+    command: require
+    working_dir: "{{ mrwf_root }}"
+    arguments: "{{ item }}"
+  with_items:
+    - "mouseketeers/silverstripe-slideshow"
+    - "silverstripe/dataobject_manager"
+
+- name: Copy the Silverstripe config file.
+  template:
+    src: _ss_environment.php.j2
+    dest: "{{ mrwf_root }}/_ss_environment.php"
+
+- name: Copy the Silverstripe env file.
+  template:
+    src: .env
+    dest: "{{ mrwf_root }}/.env"
+
+- name: Clear out default themes
+  file:
+    path: "{{ mrwf_root }}/themes"
+    state: absent
+
+- name: Add MRWF themes to the system
+  file:
+    src: /mrwf/themes
+    dest: "{{ mrwf_root}}/themes"
+    state: link
+
+- name: Clear out core default code
+  file:
+    path: "{{ mrwf_root }}/mysite"
+    state: absent
+
+- name: Replace mysite folder with our code.
+  file:
+    src: /mrwf/core
+    dest: "{{ mrwf_root}}/mysite"
+    state: link
+
+- name: Recursively change ownership of the silverstripe dir
+  file:
+    path: "{{ mrwf_root }}"
+    state: directory
+    recurse: yes
+    owner: www-data
+    group: www-data

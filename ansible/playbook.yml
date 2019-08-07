@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: True
+  roles:
+    - { role: geerlingguy.php }
+    - { role: oefenweb.composer }
+    - { role: geerlingguy.apache }
+    - { role: rheinwerk.mysql }
+    - { role: silverstripe }

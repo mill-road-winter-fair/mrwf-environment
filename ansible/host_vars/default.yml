@@ -1,0 +1,16 @@
+---
+# Base role
+# Silverstripe role
+###################
+
+# Where our site goes on the vm
+mrwf_root: /var/www/httpdocs
+mrwf_mysql_database: ss_millroadwf
+mrwf_mysql_user: root
+mrwf_mysql_password: root
+
+mysql_passwd: root
+
+apache_listen_port: 8080
+apache_vhosts:
+   - {servername: "millroadwinterfair.org", documentroot: "{{ mrwf_root }}"}

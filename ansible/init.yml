@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: False
+  become: True
+  pre_tasks:
+  - name: Creates directory
+    file:
+      path: "{{ mrwf_root }}"
+      state: directory
+      owner: www-data
+      group: www-data
+      mode: 0777
+
+# Run normal playbook
+- import_playbook: playbook.yml

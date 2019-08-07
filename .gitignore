@@ -1,0 +1,11 @@
+vagrant.yml
+.vagrant/
+ansible/roles/geerlingguy.*
+ansible/roles/geerlingguy.*/*
+ansible/roles/geerlingguy.*/*/*
+ansible/roles/rheinwerk.mysql/
+ansible/roles/rheinwerk.mysql/*
+ansible/roles/rheinwerk.mysql/*/*
+ansible/roles/oefenweb.composer/
+ansible/roles/oefenweb.composer/*
+ansible/roles/oefenweb.composer/*/*

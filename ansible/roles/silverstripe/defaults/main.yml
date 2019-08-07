@@ -1,0 +1,7 @@
+---
+ss_create_project: yes
+ss_version: "2.4.13"
+ss_env_type: dev
+ss_install_site: yes
+ss_account_name: admin
+ss_account_pass: admin
