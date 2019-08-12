@@ -3,8 +3,8 @@
   gather_facts: yes
   become: True
   roles:
-    - { role: geerlingguy.php }
+    - { role: iroquoisorg.php5 }
     - { role: oefenweb.composer }
     - { role: geerlingguy.apache }
-    - { role: rheinwerk.mysql }
+    - { role: iroquoisorg.mysql }
     - { role: silverstripe }

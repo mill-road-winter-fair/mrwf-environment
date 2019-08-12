@@ -9,8 +9,12 @@ mrwf_mysql_database: ss_millroadwf
 mrwf_mysql_user: root
 mrwf_mysql_password: root
 
-mysql_passwd: root
+# Instructions for the mysql role
+mysql_databases: [ ss_millroadwf ]
+mysql_root_username: root
+mysql_root_db_pass: root
 
-apache_listen_port: 8080
+# Instructions for the apache role
+apache_listen_port: 80
 apache_vhosts:
-   - {servername: "millroadwinterfair.org", documentroot: "{{ mrwf_root }}"}
+   - {servername: "local.millroadwinterfair.org", documentroot: "{{ mrwf_root }}"}
