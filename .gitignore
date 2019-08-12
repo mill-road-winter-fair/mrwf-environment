@@ -9,3 +9,5 @@ ansible/roles/rheinwerk.mysql/*/*
 ansible/roles/oefenweb.composer/
 ansible/roles/oefenweb.composer/*
 ansible/roles/oefenweb.composer/*/*
+ansible/roles/iroquoisorg.mysql/
+ansible/roles/iroquoisorg.php5/

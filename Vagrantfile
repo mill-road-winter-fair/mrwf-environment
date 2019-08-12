@@ -16,9 +16,9 @@ Vagrant.configure("2") do |config|
   # shared dirs
   config.vm.synced_folder '.', '/vagrant', disabled: true
   config.vm.synced_folder "./ansible", "/ansible", create: true, owner: "vagrant", group: "vagrant", mount_options: ["dmode=777,fmode=777"]
-  config.vm.synced_folder settings['theme_dir'], "/mrwf/themes/millroadwinterfair", create: true, owner: "vagrant", group: "www-data", mount_options: ["dmode=777,fmode=777"]
-  config.vm.synced_folder settings['mobile_theme_dir'], "/mrwf/themes/millroadwinterfair_mobile", create: true, owner: "vagrant", group: "www-data", mount_options: ["dmode=777,fmode=777"]
+  config.vm.synced_folder settings['theme_dir'], "/mrwf/themes", create: true, owner: "vagrant", group: "www-data", mount_options: ["dmode=777,fmode=777"]
   config.vm.synced_folder settings['core_dir'], "/mrwf/core", create: true, owner: "vagrant", group: "www-data", mount_options: ["dmode=777,fmode=777"]
+  config.vm.synced_folder settings['module_dir'], "/mrwf/modules", create: true, owner: "vagrant", group: "www-data", mount_options: ["dmode=777,fmode=777"]
   # ansible provisioner
   config.vm.provision "ansible_local" do |ansible|
     ansible.install  = true

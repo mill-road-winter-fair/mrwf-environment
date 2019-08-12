@@ -47,6 +47,15 @@
     dest: "{{ mrwf_root}}/themes"
     state: link
 
+- name: Add MRWF bespoke modules to the system
+  copy:
+    src: "{{ item }}"
+    dest: "{{ mrwf_root }}/"
+    owner: "www-data"
+    mode: 0777
+  with_fileglob:
+    - "/mrwf/modules/*"
+
 - name: Clear out core default code
   file:
     path: "{{ mrwf_root }}/mysite"
